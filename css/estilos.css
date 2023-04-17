@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  --main-color: darkgray;
+  --text-color: darkblue;
+}
+
+/* Formulario */
+.form {
+  --form-ok-color: #4caf50;
+  --form-error-color: #f44836;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+  margin-left: 10%;
+  align-items: left;
+}
+
+.form * {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.form input {
+  width: 50%;
+}
+
+.form textarea {
+  width: 50%;
+  /* evita que se pueda manipular el text area con el mouse */
+  resize: none;
+  border: solid black 1px;
+}
+
+.form legend,
+.form-response {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.form input,
+.form textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.form input[type="submit"] {
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 3%;
+  border: inset darkgray 5px;
+}
+
+.form *::placeholder {
+  /* formato a todos los placeholder */
+  color: #000;
+}
+
+/* formato de contenido valido o invalido */
+.form [required]:valid {
+  border: thin solid var(--form-ok-color);
+}
+
+.form [required]:invalid {
+  border: thin solid var(--form-error-color);
+}
+
+.form-error {
+  margin-top: 0;
+  font-size: 80%;
+  background-color: var(--form-error-color);
+  width: 50%;
+  color: #fff;
+  transition: all 800ms ease;
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.form-error.is-active {
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none {
+  display: none;
+}
+
+/* dark mode */
+
+.light {
+  transition: all 0.5s linear;
+}
+
+.dark {
+  transition: all 0.6s linear;
+  color: var(--main-color);
+  background-color: var(--text-color);
+  --clock-color: var(--main-color);
+}
+
+.dark-mode {
+  position: fixed;
+  z-index: 99;
+  bottom: 5px;
+  right: 1vh;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 1vh;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  border: 4px solid lightgrey;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.dark-mode:hover {
+  transition: all 0.3s ease-in-out;
+  color: var(--main-color);
+  background-color: var(--second-color);
+  border-color: rgb(114, 114, 114);
+}
+
+.active {
+  z-index: 98;
+  visibility: visible;
+}

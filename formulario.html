@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-    <title>Alma de Artesana (Prueba 1)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>Alma de Artesana (Prueba 1)</title>
 </head>
+
 <body>
-        <header>
-                <h1> Alma de artesana
-                </h1>
-                
-                
-                    </header>
-                
-                    <nav>
-                        <a href="index.html">Home</a> 
-                        <a href="Productos.html">Productos</a>
-                        <a href="Quienes somos...html">¿Quién soy?</a>
-                        <a href="formulario.html">Registrate</a>
-                
-                    </nav>
-<section>
+  <header>
+    <h1> Alma de artesana
+    </h1>
+
+
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Productos.html">Productos</a>
+    <a href="Quienes somos...html">¿Quién soy?</a>
+    <a href="formulario.html">Registrate</a>
+
+  </nav>
+  <section>
     <h3>Formulario de contacto</h3>
     <p>Please, subcribete to know more.</p>
 
-    <form action="" method="get"></form>
-    <label type="">Nombre:
-    <input type="text" name="Nombre" id="name" required></label>
+    <form class="form">
+      <label>Nombre:
+        <input type="text" name="nombre" placeholder="Escribe tu nombre"
+          title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{1,50}$"
+          required></label>
 
-    <p>
-            <label type="">Apellido:
-            <input type="text" name="Surname" id="surname" required></label>
-        
-    </p>
+      <p>
+        <label>E-mail:
+          <input type="mail" name="mail"
+            pattern="^[A-Za-z0-9]+(\.[A-Za-z0-9]+|-[A-Za-z0-9]+|_[A-Za-z0-9]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,15})$"
+            required placeholder="Escribe tu e-mail" title="e-mail valido: usuario@servidor.dominio" required></label>
 
-    <p>
-        <label for="">Fecha de Nacimiento
-        <input type="date" name="Fecha" id="Fecha" required></label>
-    </p>
-<input type="submit" value="Enviar"
+      </p>
+
+      <p>
+        <label>Nos dejas un comentario?
+          <textarea name="comentarios" cols="30" rows="5"></textarea>
+        </label>
+      </p>
+      <input type="submit" value="Enviar">
+    </form>
   </section>
 
-                    <footer>
-                            <p>I leave my social media if you want to see more of my work.</p>
-                            <a href="https://instagram.com/angelaseguel?igshid=YmMyMTA2M2Y="><img src="image/Instagram post _Flatline.png" alt="Instagram" width="100"></a>
-                        </footer>
+  <footer>
+    <p><span>Follow us</span><a href="https://instagram.com/angelaseguel?igshid=YmMyMTA2M2Y=" target="_blank"><img
+          src="img/instagram.png" alt="Instagram" width="25"></a></p>
+
+    <p><span>Contact us</span><a href="https://wa.me/######?text=¡Estoy+interesado!" target="_blank"><img
+          src="img/whatsapp.png" alt="whatsapp" width="25"></a></p>
+  </footer>
+  <script src="js/formulario.js"></script>
 </body>
+
 </html>
