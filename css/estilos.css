@@ -4,6 +4,7 @@
   padding: 0;
   --main-color: darkgray;
   --text-color: darkblue;
+  --second-color: rgba(0, 0, 0, 0.5)
 }
 
 /* Formulario */
@@ -105,10 +106,9 @@
 }
 
 .dark {
-  transition: all 0.6s linear;
+  transition: all 0.5s linear;
   color: var(--main-color);
   background-color: var(--text-color);
-  --clock-color: var(--main-color);
 }
 
 .dark-mode {

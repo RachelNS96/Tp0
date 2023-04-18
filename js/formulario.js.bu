@@ -1,0 +1,56 @@
+const d = document;
+
+function formValidation() {
+  const $form = d.querySelector(".form"),
+    $inputs = d.querySelectorAll(".form [required]");
+    let regexp = [];
+    console.log($inputs)
+    console.log($form.querySelectorAll("input[required]"));
+
+  $inputs.forEach((input, i) => {
+    input.pattern
+      ? regexp.push(input.pattern)
+      : regexp.push(input.dataset.pattern);
+
+    const $span = d.createElement("span");
+    $span.id = input.name;
+    $span.textContent = input.title;
+    $span.classList.add("form-error", "none");
+    
+    input.insertAdjacentElement("afterend", $span);
+  });
+  d.addEventListener("click", (e) => {
+    if (e.target.matches(".form [type='submit']")) {
+      let ok = 1;
+      $inputs.forEach((input, i) => {
+        let expresion = new RegExp(regexp[i]);
+        if (!expresion.exec(input.value)) {
+          d.getElementById(input.name).classList.add("is-active");
+          ok--;
+        } else {
+          d.getElementById(input.name).classList.remove("is-active");
+        }
+      });
+      if (ok !== 1) {
+        e.preventDefault();
+      }
+    }
+  });
+  d.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetch("https://formsubmit.co/ajax/carlos.alberto.contreras.1979@gmail.com",{
+      method:"POST",
+      body: new FormData(e.target)
+    })
+    .then(res => res.ok ? res.json() : Promise.reject(res))
+    .then(json => {
+      console.log(json)
+      $form
+        .querySelectorAll("input[required]")
+        .forEach((input) => (input.value = ""));
+      $form.querySelectorAll("textarea").forEach(input => input.value="")
+    })
+  });
+
+}
+d.addEventListener("DOMContentLoaded", e => formValidation())
